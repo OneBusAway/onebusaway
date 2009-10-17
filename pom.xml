@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.onebusaway</groupId>
+    <artifactId>onebusaway</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <repositories>
+        <repository>
+            <id>releases.developer.onebusaway.org</id>
+            <url>http://developer.onebusaway.org/maven/repository/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>snapshots.developer.onebusaway.org</id>
+            <url>http://developer.onebusaway.org/maven/snapshot-repository/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+    </dependencies>
+
+    <scm>
+        <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway/trunk</connection>
+        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway/trunk</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>releases.developer.onebusaway.org</id>
+            <url>scp://developer.onebusaway.org/scratch/onebusaway/bundles/org.onebusaway.developer/htdocs/maven/repository</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots.developer.onebusaway.org</id>
+            <url>scp://developer.onebusaway.org/scratch/onebusaway/bundles/org.onebusaway.developer/htdocs/maven/snapshot-repository</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <activation>
+                <property>
+                    <name>xhtmldoclet</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <reporting>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <doclet>net.sourceforge.xhtmldoclet.Doclet</doclet>
+                            <docletArtifact>
+                                <groupId>net.sourceforge.xhtmldoclet</groupId>
+                                <artifactId>xhtmldoclet</artifactId>
+                                <version>0.4</version>
+                            </docletArtifact>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </reporting>
+        </profile>
+    </profiles>
+
+</project>
