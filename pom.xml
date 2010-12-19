@@ -45,9 +45,9 @@
     </developers>
 
     <scm>
-        <connection>scm:svn:http://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</connection>
-        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</developerConnection>
-        <url>http://code.google.com/p/onebusaway/source/browse/#svn/modules/onebusaway/trunk</url>
+        <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway/trunk</connection>
+        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway/trunk</developerConnection>
+        <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway/trunk</url>
     </scm>
 
     <distributionManagement>
