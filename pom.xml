@@ -1,51 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.onebusaway</groupId>
     <artifactId>onebusaway</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <repositories>
-        <repository>
-            <id>releases.developer.onebusaway.org</id>
-            <url>http://developer.onebusaway.org/maven/repository/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>snapshots.developer.onebusaway.org</id>
-            <url>http://developer.onebusaway.org/maven/snapshot-repository/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
+    <name>OneBusAway</name>
+    <description>OneBusAway provides a set of tools to make using public transit easier</description>
+    <url>http://code.google.com/p/onebusaway/</url>
+
+    <organization>
+        <name>OneBusAway</name>
+        <url>http://onebusaway.org/</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <distribution_id>sonatype-nexus-staging</distribution_id>
+        <distribution_name>Sonatype Nexus Release Repository</distribution_name>
+        <distribution_url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</distribution_url>
+        <snapshot_distribution_id>sonatype-nexus-snapshots</snapshot_distribution_id>
+        <snapshot_distribution_name>Sonatype Nexus Snapshots Repository</snapshot_distribution_name>
+        <snapshot_distribution_url>http://oss.sonatype.org/content/repositories/snapshots</snapshot_distribution_url>
+    </properties>
 
     <dependencies>
     </dependencies>
 
+    <developers>
+        <developer>
+            <id>bdferris</id>
+            <name>Brian Ferris</name>
+            <email>bdferris@onebusaway.org</email>
+        </developer>
+    </developers>
+
     <scm>
-        <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway/trunk</connection>
-        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway/trunk</developerConnection>
+        <connection>scm:svn:http://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</connection>
+        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</developerConnection>
+        <url>http://code.google.com/p/onebusaway/source/browse/#svn/modules/onebusaway/trunk</url>
     </scm>
 
     <distributionManagement>
         <repository>
-            <id>releases.developer.onebusaway.org</id>
-            <url>scp://developer.onebusaway.org/scratch/onebusaway/bundles/org.onebusaway.developer/htdocs/maven/repository</url>
+            <id>${distribution_id}</id>
+            <name>${distribution_name}</name>
+            <url>${distribution_url}</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots.developer.onebusaway.org</id>
-            <url>scp://developer.onebusaway.org/scratch/onebusaway/bundles/org.onebusaway.developer/htdocs/maven/snapshot-repository</url>
+            <id>${snapshot_distribution_id}</id>
+            <name>${snapshot_distribution_name}</name>
+            <url>${snapshot_distribution_url}</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -58,33 +72,52 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <!-- We enable a special onebusaway-release profile -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.0</version>
+                <configuration>
+                    <goals>deploy</goals>
+                    <arguments>-Ponebusaway-release</arguments>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
+            <id>onebusaway</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>release-sign-artifacts</id>
             <activation>
                 <property>
-                    <name>xhtmldoclet</name>
+                    <name>performRelease</name>
                     <value>true</value>
                 </property>
             </activation>
-            <reporting>
+            <build>
                 <plugins>
+                    <!-- We want to sign all artifacts with our gpg key on release -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <configuration>
-                            <doclet>net.sourceforge.xhtmldoclet.Doclet</doclet>
-                            <docletArtifact>
-                                <groupId>net.sourceforge.xhtmldoclet</groupId>
-                                <artifactId>xhtmldoclet</artifactId>
-                                <version>0.4</version>
-                            </docletArtifact>
-                        </configuration>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
-            </reporting>
+            </build>
         </profile>
     </profiles>
 

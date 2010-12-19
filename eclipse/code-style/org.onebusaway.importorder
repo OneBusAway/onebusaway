@@ -1,0 +1,11 @@
+#Organize Import Order
+#Sun Nov 02 12:43:20 PST 2008
+8=javax
+7=java
+6=org
+5=net
+4=junit
+3=com
+2=edu
+1=edu.washington
+0=org.onebusaway
