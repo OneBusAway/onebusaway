@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.onebusaway</groupId>
     <artifactId>onebusaway</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.7-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>OneBusAway</name>
@@ -45,9 +45,9 @@
     </developers>
 
     <scm>
-        <connection>scm:svn:http://onebusaway.googlecode.com/svn/modules/onebusaway/tags/onebusaway-1.0.7</connection>
-        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/modules/onebusaway/tags/onebusaway-1.0.7</developerConnection>
-        <url>http://code.google.com/p/onebusaway/source/browse/#svn/modules/onebusaway/tags/onebusaway-1.0.7</url>
+        <connection>scm:svn:http://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</connection>
+        <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/modules/onebusaway/trunk</developerConnection>
+        <url>http://code.google.com/p/onebusaway/source/browse/#svn/modules/onebusaway/trunk</url>
     </scm>
 
     <distributionManagement>
