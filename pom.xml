@@ -228,6 +228,15 @@
         </configuration>
       </plugin>
     </plugins>
+    <!-- In Maven 3, ssh wagon is no longer enabled by default. Since many of our internal deployments use ssh, we enable 
+      it here -->
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-ssh</artifactId>
+        <version>1.0-beta-7</version>
+      </extension>
+    </extensions>
   </build>
 
   <profiles>
