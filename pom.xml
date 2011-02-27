@@ -32,6 +32,10 @@
     <snapshot_distribution_id>sonatype-nexus-snapshots</snapshot_distribution_id>
     <snapshot_distribution_name>Sonatype Nexus Snapshots Repository</snapshot_distribution_name>
     <snapshot_distribution_url>http://oss.sonatype.org/content/repositories/snapshots</snapshot_distribution_url>
+    <site_id>developer.onebusaway.org</site_id>
+    <site_url>scp://developer.onebusaway.org/var/www/sites/developer/modules/${project.name}/${project.version}</site_url>
+    <site_base_url>http://developer.onebusaway.org/modules</site_base_url>
+    <currentVersion>${project.version}</currentVersion>
   </properties>
 
   <dependencies>
@@ -62,9 +66,134 @@
       <name>${snapshot_distribution_name}</name>
       <url>${snapshot_distribution_url}</url>
     </snapshotRepository>
+    <site>
+      <id>${site_id}</id>
+      <url>${site_url}</url>
+    </site>
   </distributionManagement>
 
+  <issueManagement>
+    <system>Google Code</system>
+    <url>https://code.google.com/p/onebusaway/issues/list</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>Hudson</system>
+    <url>http://hudson.onebusaway.org/</url>
+  </ciManagement>
+
+  <mailingLists>
+    <mailingList>
+      <name>onebusaway-users</name>
+      <archive>https://groups.google.com/group/onebusaway-users</archive>
+    </mailingList>
+    <mailingList>
+      <name>onebusaway-developers</name>
+      <archive>https://groups.google.com/group/onebusaway-developers</archive>
+    </mailingList>
+    <mailingList>
+      <name>onebusaway-api</name>
+      <archive>https://groups.google.com/group/onebusaway-api</archive>
+    </mailingList>
+    <mailingList>
+      <name>onebusaway-issues</name>
+      <archive>https://groups.google.com/group/onebusaway-issues</archive>
+    </mailingList>
+    <mailingList>
+      <name>onebusaway-commits</name>
+      <archive>https://groups.google.com/group/onebusaway-commits</archive>
+    </mailingList>
+    <mailingList>
+      <name>onebusaway-hudson</name>
+      <archive>https://groups.google.com/group/onebusaway-hudson</archive>
+    </mailingList>
+  </mailingLists>
+
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.4.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.4.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.0-beta-3</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>1.2.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.1.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.1.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -77,10 +206,26 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.0</version>
         <configuration>
           <goals>deploy</goals>
           <arguments>-Ponebusaway-release</arguments>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-project-info-reports-plugin</artifactId>
+              <version>2.3.1</version>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+          </reportPlugins>
         </configuration>
       </plugin>
     </plugins>
