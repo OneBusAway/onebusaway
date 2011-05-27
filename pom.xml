@@ -78,7 +78,7 @@
 
   <ciManagement>
     <system>Hudson</system>
-    <url>http://hudson.onebusaway.org/</url>
+    <url>http://ci.onebusaway.org/</url>
   </ciManagement>
 
   <mailingLists>
