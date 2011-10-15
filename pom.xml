@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway</artifactId>
@@ -214,6 +215,19 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
+        <dependencies>
+          <!--
+            We add a dependency on Julien Nicoulaud's Maven Markdown Doxia plugin so we can generate site documentation
+            using the more-widely-used Markdown syntax, as opposed to apt.  This module looks like it has been
+            officially included in the maven-doxia 1.3-SNAPSHOT, so as soon as 1.3 is released, we can switch this
+            to depend on the official Maven version of the module
+          -->
+          <dependency>
+            <groupId>net.ju-n.maven.doxia</groupId>
+            <artifactId>doxia-module-markdown</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+        </dependencies>
         <configuration>
           <reportPlugins>
             <plugin>
