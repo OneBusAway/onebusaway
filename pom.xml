@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway</artifactId>
@@ -8,7 +9,7 @@
 
   <name>OneBusAway</name>
   <description>OneBusAway provides a set of tools to make using public transit easier</description>
-  <url>http://code.google.com/p/onebusaway/</url>
+  <url>http://developers.onebusaway.org/modules/onebusaway/current/</url>
 
   <organization>
     <name>OneBusAway</name>
@@ -36,6 +37,7 @@
     <site_base_url>http://developer.onebusaway.org/modules</site_base_url>
     <currentVersion>${project.version}</currentVersion>
     <maven_javadoc_plugin_version>2.7</maven_javadoc_plugin_version>
+    <maven_project_info_reports_plugin_version>2.4</maven_project_info_reports_plugin_version>
   </properties>
 
   <dependencies>
@@ -54,6 +56,13 @@
     <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway/trunk</developerConnection>
     <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway/trunk</url>
   </scm>
+
+  <repositories>
+    <repository>
+      <id>public.onebusaway.org</id>
+      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+    </repository>
+  </repositories>
 
   <distributionManagement>
     <repository>
@@ -78,7 +87,7 @@
   </issueManagement>
 
   <ciManagement>
-    <system>Hudson</system>
+    <system>jenkins</system>
     <url>http://ci.onebusaway.org/</url>
   </ciManagement>
 
@@ -104,8 +113,8 @@
       <archive>https://groups.google.com/group/onebusaway-commits</archive>
     </mailingList>
     <mailingList>
-      <name>onebusaway-hudson</name>
-      <archive>https://groups.google.com/group/onebusaway-hudson</archive>
+      <name>onebusaway-ci</name>
+      <archive>https://groups.google.com/group/onebusaway-ci</archive>
     </mailingList>
   </mailingLists>
 
@@ -160,7 +169,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-project-info-reports-plugin</artifactId>
-          <version>2.3.1</version>
+          <version>${maven_project_info_reports_plugin_version}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -175,7 +184,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.0-beta-3</version>
+          <version>3.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -232,7 +241,7 @@
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-project-info-reports-plugin</artifactId>
-              <version>2.3.1</version>
+              <version>${maven_project_info_reports_plugin_version}</version>
             </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
