@@ -7,9 +7,9 @@
   <version>1.1.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>OneBusAway</name>
-  <description>OneBusAway provides a set of tools to make using public transit easier</description>
-  <url>http://developers.onebusaway.org/modules/onebusaway/current/</url>
+  <name>onebusaway</name>
+  <description>Parent module for all OneBusAway projects with common configuration information.</description>
+  <url>https://github.com/OneBusAway/onebusaway/wiki/</url>
 
   <organization>
     <name>OneBusAway</name>
@@ -26,12 +26,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <distribution_id>sonatype-nexus-staging</distribution_id>
-    <distribution_name>Sonatype Nexus Release Repository</distribution_name>
-    <distribution_url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</distribution_url>
-    <snapshot_distribution_id>sonatype-nexus-snapshots</snapshot_distribution_id>
-    <snapshot_distribution_name>Sonatype Nexus Snapshots Repository</snapshot_distribution_name>
-    <snapshot_distribution_url>http://oss.sonatype.org/content/repositories/snapshots</snapshot_distribution_url>
+    <distribution_id>nexus.onebusaway.org-releases</distribution_id>
+    <distribution_name>OneBusAway Nexus Release Repository</distribution_name>
+    <distribution_url>http://nexus.onebusaway.org/content/repositories/releases/</distribution_url>
+    <snapshot_distribution_id>nexus.onebusaway.org-snapshots</snapshot_distribution_id>
+    <snapshot_distribution_name>OneBusAway Nexus Snapshots Repository</snapshot_distribution_name>
+    <snapshot_distribution_url>http://nexus.onebusaway.org/content/repositories/snapshots/</snapshot_distribution_url>
     <site_id>developer.onebusaway.org</site_id>
     <site_url>scp://developer.onebusaway.org/var/www/sites/developer/modules/${project.name}/${project.version}</site_url>
     <site_base_url>http://developer.onebusaway.org/modules</site_base_url>
@@ -52,9 +52,9 @@
   </developers>
 
   <scm>
-    <connection>scm:svn:http://onebusaway.googlecode.com/svn/onebusaway/trunk</connection>
-    <developerConnection>scm:svn:https://onebusaway.googlecode.com/svn/onebusaway/trunk</developerConnection>
-    <url>http://code.google.com/p/onebusaway/source/browse/#svn/onebusaway/trunk</url>
+    <connection>scm:git:http://github.com/OneBusAway/onebusaway.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway.git</developerConnection>
+    <url>http://github.com/OneBusAway/onebusaway</url>
   </scm>
 
   <repositories>
@@ -82,8 +82,8 @@
   </distributionManagement>
 
   <issueManagement>
-    <system>Google Code</system>
-    <url>https://code.google.com/p/onebusaway/issues/list</url>
+    <system>GitHub</system>
+    <url>https://github.com/OneBusAway/onebusaway/issues</url>
   </issueManagement>
 
   <ciManagement>
@@ -250,6 +250,14 @@
             </plugin>
           </reportPlugins>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+            <inherited>false</inherited>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
     <!-- In Maven 3, ssh wagon is no longer enabled by default. Since many of our internal deployments use ssh, we enable 
