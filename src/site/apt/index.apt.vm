@@ -1,4 +1,5 @@
 onebusaway
 
   The <<<onebusaway>>> module is the {{{http://maven.apache.org/}Maven}} parent module for all OneBusAway projects.  It
-defines common configuration information shared across projects.
+defines common configuration information shared across projects.  For more details, check out the
+{{{https://github.com/OneBusAway/onebusaway}GitHub project page}}.
