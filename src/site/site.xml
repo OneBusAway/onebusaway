@@ -2,16 +2,11 @@
 <project name="onebusaway">
   <bannerLeft>
     <name>OneBusAway</name>
-    <src>OneBusAway.png</src>
+    <src>http://developer.onebusaway.org/images/OneBusAway.png</src>
     <href>http://developer.onebusaway.org/</href>
   </bannerLeft>
   <publishDate position="right" />
   <version position="right" />
-  <skin>
-    <groupId>org.onebusaway</groupId>
-    <artifactId>onebusaway-maven-skin</artifactId>
-    <version>1.0.0</version>
-  </skin>
   <body>
     <head>
       <!-- Google Analytics - Start -->
