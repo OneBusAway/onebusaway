@@ -21,6 +21,6 @@ XML->XML Files->Editor:
 
 Line width: 120
 Indent using spaces
-Indentation size: 4
+Indentation size: 2
 
 See the xml-formatting.png in CodeStyle for an example.
