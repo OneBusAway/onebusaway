@@ -32,8 +32,9 @@
     <snapshot_distribution_name>OneBusAway Nexus Snapshots Repository</snapshot_distribution_name>
     <snapshot_distribution_url>http://nexus.onebusaway.org/content/repositories/snapshots/</snapshot_distribution_url>
     <site_id>developer.onebusaway.org</site_id>
-    <site_url>scp://developer.onebusaway.org/var/www/sites/developer/modules/${project.name}/${project.version}</site_url>
-    <site_base_url>http://developer.onebusaway.org/modules</site_base_url>
+    <site_deployment_base>scp://developer.onebusaway.org/var/www/sites/developer/modules</site_deployment_base>
+    <site_url>${site_deployment_base}/${project.name}/${project.version}</site_url>
+    <site_base_url>http://developer.onebusaway.org/modules</site_base_url>    
     <currentVersion>${project.version}</currentVersion>
     <maven_javadoc_plugin_version>2.7</maven_javadoc_plugin_version>
     <maven_project_info_reports_plugin_version>2.4</maven_project_info_reports_plugin_version>
@@ -209,6 +210,39 @@
           <source>1.6</source>
           <target>1.6</target>
         </configuration>
+      </plugin>
+      <!-- We want a license header in all our source code files. -->
+      <plugin>
+        <groupId>com.mycila.maven-license-plugin</groupId>
+        <artifactId>maven-license-plugin</artifactId>
+        <version>1.10.b1</version>
+        <configuration>
+          <header>LICENSE.txt</header>
+          <excludes>
+            <exclude>src/site/**</exclude>
+            <exclude>LICENSE.txt</exclude>
+            <exclude>eclipse/**</exclude>
+            <exclude>**/.gitignore</exclude>
+            <exclude>**/usage.txt</exclude>
+            <exclude>**/log4j.properties</exclude>
+          </excludes>
+          <strictCheck>true</strictCheck>
+          <aggregate>false</aggregate>
+          <headerSections>
+            <headerSection>
+              <key>COPYRIGHT_SECTION</key>
+              <defaultValue>Copyright (C) 2012 Brian Ferris &lt;bdferris@onebusaway.org&gt;</defaultValue>
+              <ensureMatch>Copyright \(C\) \d{4} .+</ensureMatch>
+            </headerSection>
+          </headerSections>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <!-- We enable a special onebusaway-release profile -->
       <plugin>
