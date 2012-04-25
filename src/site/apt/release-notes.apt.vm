@@ -2,9 +2,23 @@ Release Notes
 
 * ${currentVersion}
 
-  * Change how OneBusAway logo image is referenced in site generation.
+  * Specify version for maven-surefire-plugin.
 
   * Full Documentation: {{${site_base_url}/onebusaway/${currentVersion}/}}
+
+* 1.1.7
+
+  * Run the Maven license check plugin for all projects.
+  
+  * Break out Maven site deployment property values to allow more flexibility for child modules.
+
+  * Update code-style documentation to indicate XML indentation of 2 spaces.
+
+  * Full Documentation: {{${site_base_url}/onebusaway/1.1.7/}}
+
+* 1.1.6
+
+  * Full Documentation: {{${site_base_url}/onebusaway/1.1.6/}}
   
 * 1.1.5
 
