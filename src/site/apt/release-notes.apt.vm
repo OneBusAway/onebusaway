@@ -2,9 +2,13 @@ Release Notes
 
 * ${currentVersion}
 
+  * Full Documentation: {{${site_base_url}/onebusaway/${currentVersion}/}}
+    
+* 1.1.8
+
   * Specify version for maven-surefire-plugin.
 
-  * Full Documentation: {{${site_base_url}/onebusaway/${currentVersion}/}}
+  * Full Documentation: {{${site_base_url}/onebusaway/1.1.8/}}
 
 * 1.1.7
 
