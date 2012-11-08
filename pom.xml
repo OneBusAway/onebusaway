@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway</artifactId>
@@ -34,7 +35,7 @@
     <site_id>developer.onebusaway.org</site_id>
     <site_deployment_base>scp://developer.onebusaway.org/var/www/sites/developer/modules</site_deployment_base>
     <site_url>${site_deployment_base}/${project.name}/${project.version}</site_url>
-    <site_base_url>http://developer.onebusaway.org/modules</site_base_url>    
+    <site_base_url>http://developer.onebusaway.org/modules</site_base_url>
     <currentVersion>${project.version}</currentVersion>
     <maven_javadoc_plugin_version>2.7</maven_javadoc_plugin_version>
     <maven_project_info_reports_plugin_version>2.4</maven_project_info_reports_plugin_version>
@@ -63,6 +64,13 @@
       <url>http://nexus.onebusaway.org/content/groups/public/</url>
     </repository>
   </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>public.onebusaway.org</id>
+      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
   <distributionManagement>
     <repository>
@@ -185,7 +193,7 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.12</version>
-        </plugin>        
+        </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
@@ -262,12 +270,10 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <dependencies>
-          <!--
-            We add a dependency on Julien Nicoulaud's Maven Markdown Doxia plugin so we can generate site documentation
-            using the more-widely-used Markdown syntax, as opposed to apt.  This module looks like it has been
-            officially included in the maven-doxia 1.3-SNAPSHOT, so as soon as 1.3 is released, we can switch this
-            to depend on the official Maven version of the module, as opposed to our custom release candidate.
-          -->
+          <!-- We add a dependency on Julien Nicoulaud's Maven Markdown Doxia plugin so we can generate site documentation 
+            using the more-widely-used Markdown syntax, as opposed to apt. This module looks like it has been officially included in 
+            the maven-doxia 1.3-SNAPSHOT, so as soon as 1.3 is released, we can switch this to depend on the official Maven version of 
+            the module, as opposed to our custom release candidate. -->
           <dependency>
             <groupId>org.apache.maven.doxia</groupId>
             <artifactId>doxia-module-markdown</artifactId>
