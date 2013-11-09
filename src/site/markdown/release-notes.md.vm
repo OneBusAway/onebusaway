@@ -4,12 +4,16 @@
 
 $H$H ${currentVersion}
 
+* Full Documentation: ${site_base_url}/onebusaway/${currentVersion}/
+
+$H$H 1.1.10
+
 * Update Eclipse code-formatter settings such that comments in the header
   (typically the license section) are not updated when formatting.
 * Bump maven-site-plugin version to 3.3, which seems to have a built-in
   support for Doxia + Markdown, such that we don't need to explicitly add
   in Markdown support any more.
-* Full Documentation: ${site_base_url}/onebusaway/${currentVersion}/
+* Full Documentation: ${site_base_url}/onebusaway/1.1.10/
 
 $H$H 1.1.9
 
