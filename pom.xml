@@ -52,8 +52,8 @@
   </developers>
 
   <scm>
-    <connection>scm:git:http://github.com/OneBusAway/onebusaway.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway.git</developerConnection>
+    <connection>scm:git:https://github.com/OneBusAway/onebusaway.git</connection>
+    <developerConnection>scm:git:https://github.com/OneBusAway/onebusaway.git</developerConnection>
     <url>http://github.com/OneBusAway/onebusaway</url>
   </scm>
 
