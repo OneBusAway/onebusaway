@@ -1,0 +1,38 @@
+# Release Notes
+
+#set( $H = '#' ) ## When using velocity templating (a .vm file), the ## indicates a Velocity comment, which makes Markdown section headers tricky
+
+$H$H ${currentVersion}
+
+* Update Eclipse code-formatter settings such that comments in the header
+  (typically the license section) are not updated when formatting.
+* Bump maven-site-plugin version to 3.3, which seems to have a built-in
+  support for Doxia + Markdown, such that we don't need to explicitly add
+  in Markdown support any more.
+* Full Documentation: ${site_base_url}/onebusaway/${currentVersion}/
+
+$H$H 1.1.9
+
+* Add OneBusAway Nexus repository to `pluginRepositories`.
+* Full Documentation: ${site_base_url}/onebusaway/1.1.9/
+  
+$H$H 1.1.8
+
+* Specify version for maven-surefire-plugin.
+* Full Documentation: ${site_base_url}/onebusaway/1.1.8/
+
+$H$H 1.1.7
+
+* Run the Maven license check plugin for all projects.
+* Break out Maven site deployment property values to allow more flexibility for child modules.
+* Update code-style documentation to indicate XML indentation of 2 spaces.
+* Full Documentation: ${site_base_url}/onebusaway/1.1.7/
+
+$H$H 1.1.6
+
+* Full Documentation: ${site_base_url}/onebusaway/1.1.6/
+
+$H$H 1.1.5
+
+* Initial site documentation.
+* Full Documentation: ${site_base_url}/onebusaway/1.1.5/
