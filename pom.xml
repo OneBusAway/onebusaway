@@ -235,6 +235,8 @@
             <exclude>LICENSE.txt</exclude>
             <exclude>eclipse/**</exclude>
             <exclude>**/.gitignore</exclude>
+            <exclude>**/git.properties</exclude>
+            <exclude>**/.travis.yml</exclude>
             <exclude>**/usage.txt</exclude>
             <exclude>**/log4j.properties</exclude>
           </excludes>
