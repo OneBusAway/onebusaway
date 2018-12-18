@@ -77,6 +77,13 @@
             </snapshots>
         </repository>
   </repositories>
+    <scm>
+      <connection>scm:git:git@github.com:onebusawway/onebusaway.git</connection>
+      <developerConnection>scm:git:git@github.com:onebusaway/onebusaway.git</developerConnection>
+      <url>scm:git:git@github.com:onebusaway/onebusaway</url>
+      <tag>HEAD</tag>
+  </scm>
+
 
   <pluginRepositories>
     <pluginRepository>
