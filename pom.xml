@@ -59,28 +59,28 @@
   <repositories>
     <repository>
       <id>public.onebusaway.org</id>
-      <url>https://repo.camsys-apps.com/snapshots/</url>
+      <url>https://repo.camsys-apps.com/third-party/</url>
     </repository>
-        <repository>
-            <id>releases.developer.onebusaway.org</id>
-            <url>https://repo.camsys-apps.com/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>snapshots.developer.onebusaway.org</id>
-            <url>https://repo.camsys-apps.com/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
+    <repository>
+        <id>releases.developer.onebusaway.org</id>
+        <url>https://repo.camsys-apps.com/releases/</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+    <repository>
+        <id>snapshots.developer.onebusaway.org</id>
+        <url>https://repo.camsys-apps.com/snapshots/</url>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+    </repository>
   </repositories>
     <scm>
       <connection>scm:git:git@github.com:onebusawway/onebusaway.git</connection>
@@ -93,7 +93,7 @@
   <pluginRepositories>
     <pluginRepository>
       <id>public.onebusaway.org</id>
-      <url>https://repo.camsys-apps.com/releases/</url>
+      <url>https://repo.camsys-apps.com/third-party/</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -335,6 +335,11 @@
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-ssh</artifactId>
         <version>1.0-beta-7</version>
+      </extension>
+      <extension>
+        <groupId>com.github.platform-team</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>6.0.0</version>
       </extension>
     </extensions>
   </build>
