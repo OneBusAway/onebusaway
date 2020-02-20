@@ -331,11 +331,11 @@
     <!-- In Maven 3, ssh wagon is no longer enabled by default. Since many of our internal deployments use ssh, we enable 
       it here -->
     <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-ssh</artifactId>
-        <version>3.3.4</version>
-      </extension>
+<!--      <extension>-->
+<!--        <groupId>org.apache.maven.wagon</groupId>-->
+<!--        <artifactId>wagon-ssh</artifactId>-->
+<!--        <version>3.3.4</version>-->
+<!--      </extension>-->
       <extension>
         <groupId>com.github.platform-team</groupId>
         <artifactId>aws-maven</artifactId>
