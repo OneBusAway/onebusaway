@@ -25,12 +25,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <distribution_id>nexus.onebusaway.org-releases</distribution_id>
-    <distribution_name>OneBusAway Nexus Release Repository</distribution_name>
-    <distribution_url>http://nexus.onebusaway.org/content/repositories/releases/</distribution_url>
-    <snapshot_distribution_id>nexus.onebusaway.org-snapshots</snapshot_distribution_id>
-    <snapshot_distribution_name>OneBusAway Nexus Snapshots Repository</snapshot_distribution_name>
-    <snapshot_distribution_url>http://nexus.onebusaway.org/content/repositories/snapshots/</snapshot_distribution_url>
+    <distribution_id>releases-camsys-public-repo</distribution_id>
+    <distribution_name>Camsys Public Release Repo</distribution_name>
+    <distribution_url>s3://repo.camsys-apps.com/releases/</distribution_url>
+    <snapshot_distribution_id>snapshots-camsys-public-repo</snapshot_distribution_id>
+    <snapshot_distribution_name>Camsys Public Snapshot Repo</snapshot_distribution_name>
+    <snapshot_distribution_url>s3://repo.camsys-apps.com/snapshots/</snapshot_distribution_url>
     <site_id>developer.onebusaway.org</site_id>
     <site_deployment_base>scp://developer.onebusaway.org/var/www/sites/developer/modules</site_deployment_base>
     <site_url>${site_deployment_base}/${project.name}/${project.version}</site_url>
@@ -49,16 +49,21 @@
       <name>Brian Ferris</name>
       <email>bdferris@onebusaway.org</email>
     </developer>
+    <developer>
+      <id>sheldonabrown</id>
+      <name>Sheldon A. Brown</name>
+      <email>sheldonb@gmail.com</email>
+    </developer>
   </developers>
 
   <repositories>
     <repository>
       <id>public.onebusaway.org</id>
-      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+      <url>https://repo.camsys-apps.com/snapshots/</url>
     </repository>
         <repository>
             <id>releases.developer.onebusaway.org</id>
-            <url>http://developer.onebusaway.org/maven/repository/</url>
+            <url>https://repo.camsys-apps.com/releases/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -68,7 +73,7 @@
         </repository>
         <repository>
             <id>snapshots.developer.onebusaway.org</id>
-            <url>http://developer.onebusaway.org/maven/snapshot-repository/</url>
+            <url>https://repo.camsys-apps.com/snapshots/</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -88,7 +93,7 @@
   <pluginRepositories>
     <pluginRepository>
       <id>public.onebusaway.org</id>
-      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+      <url>https://repo.camsys-apps.com/releases/</url>
     </pluginRepository>
   </pluginRepositories>
 
