@@ -58,11 +58,11 @@
 
   <repositories>
     <repository>
-      <id>public.onebusaway.org</id>
+      <id>repo.camsys-apps.com</id>
       <url>https://repo.camsys-apps.com/third-party/</url>
     </repository>
     <repository>
-        <id>releases.developer.onebusaway.org</id>
+        <id>releases-camsys-public-repo</id>
         <url>https://repo.camsys-apps.com/releases/</url>
         <releases>
             <enabled>true</enabled>
@@ -72,7 +72,7 @@
         </snapshots>
     </repository>
     <repository>
-        <id>snapshots.developer.onebusaway.org</id>
+        <id>snapshots-camsys-public-repo</id>
         <url>https://repo.camsys-apps.com/snapshots/</url>
         <releases>
             <enabled>false</enabled>
@@ -92,7 +92,7 @@
 
   <pluginRepositories>
     <pluginRepository>
-      <id>public.onebusaway.org</id>
+      <id>repo.camsys-apps.com</id>
       <url>https://repo.camsys-apps.com/third-party/</url>
     </pluginRepository>
   </pluginRepositories>
