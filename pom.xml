@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway</artifactId>
-  <version>1.2.8-SNAPSHOT</version>
+  <version>1.2.8</version>
   <packaging>pom</packaging>
 
   <name>onebusaway</name>
@@ -86,7 +86,7 @@
       <connection>scm:git:git@github.com:onebusawway/onebusaway.git</connection>
       <developerConnection>scm:git:git@github.com:onebusaway/onebusaway.git</developerConnection>
       <url>scm:git:git@github.com:onebusaway/onebusaway</url>
-      <tag>HEAD</tag>
+      <tag>onebusaway-1.2.8</tag>
   </scm>
 
 
