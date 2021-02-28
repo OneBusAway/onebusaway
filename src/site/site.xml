@@ -9,7 +9,6 @@
   <version position="right" />
   <body>
     <head>
-      <!-- Google Analytics - Start -->
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-2423527-16']);
@@ -22,8 +21,7 @@
   })();
 
 </script>
-      <!-- Google Analytics - End -->
-    </head>  
+    </head>
     <menu name="onebusaway">
       <item name="About" href="/index.html" />
       <item name="Release Notes" href="/release-notes.html" />
