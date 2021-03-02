@@ -8,22 +8,6 @@
   <publishDate position="right" />
   <version position="right" />
   <body>
-    <head>
-      <!-- Google Analytics - Start -->
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2423527-16']);
-  _gaq.push(['_trackPageview']);
-
- (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-      <!-- Google Analytics - End -->
-    </head>  
     <menu name="onebusaway">
       <item name="About" href="/index.html" />
       <item name="Release Notes" href="/release-notes.html" />

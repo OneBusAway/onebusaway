@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onebusaway</groupId>
   <artifactId>onebusaway</artifactId>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>1.2.9-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>onebusaway</name>
@@ -25,12 +25,12 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <distribution_id>nexus.onebusaway.org-releases</distribution_id>
-    <distribution_name>OneBusAway Nexus Release Repository</distribution_name>
-    <distribution_url>http://nexus.onebusaway.org/content/repositories/releases/</distribution_url>
-    <snapshot_distribution_id>nexus.onebusaway.org-snapshots</snapshot_distribution_id>
-    <snapshot_distribution_name>OneBusAway Nexus Snapshots Repository</snapshot_distribution_name>
-    <snapshot_distribution_url>http://nexus.onebusaway.org/content/repositories/snapshots/</snapshot_distribution_url>
+    <distribution_id>releases-camsys-public-repo</distribution_id>
+    <distribution_name>Camsys Public Release Repo</distribution_name>
+    <distribution_url>s3://repo.camsys-apps.com/releases/</distribution_url>
+    <snapshot_distribution_id>snapshots-camsys-public-repo</snapshot_distribution_id>
+    <snapshot_distribution_name>Camsys Public Snapshot Repo</snapshot_distribution_name>
+    <snapshot_distribution_url>s3://repo.camsys-apps.com/snapshots/</snapshot_distribution_url>
     <site_id>developer.onebusaway.org</site_id>
     <site_deployment_base>scp://developer.onebusaway.org/var/www/sites/developer/modules</site_deployment_base>
     <site_url>${site_deployment_base}/${project.name}/${project.version}</site_url>
@@ -49,25 +49,51 @@
       <name>Brian Ferris</name>
       <email>bdferris@onebusaway.org</email>
     </developer>
+    <developer>
+      <id>sheldonabrown</id>
+      <name>Sheldon A. Brown</name>
+      <email>sheldonb@gmail.com</email>
+    </developer>
   </developers>
-
-  <scm>
-    <connection>scm:git:http://github.com/OneBusAway/onebusaway.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/OneBusAway/onebusaway.git</developerConnection>
-    <url>http://github.com/OneBusAway/onebusaway</url>
-  </scm>
 
   <repositories>
     <repository>
-      <id>public.onebusaway.org</id>
-      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+      <id>repo.camsys-apps.com</id>
+      <url>https://repo.camsys-apps.com/third-party/</url>
+    </repository>
+    <repository>
+        <id>releases-camsys-public-repo</id>
+        <url>https://repo.camsys-apps.com/releases/</url>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+    </repository>
+    <repository>
+        <id>snapshots-camsys-public-repo</id>
+        <url>https://repo.camsys-apps.com/snapshots/</url>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
     </repository>
   </repositories>
+    <scm>
+      <connection>scm:git:git@github.com:onebusawway/onebusaway.git</connection>
+      <developerConnection>scm:git:git@github.com:onebusaway/onebusaway.git</developerConnection>
+      <url>scm:git:git@github.com:onebusaway/onebusaway</url>
+      <tag>HEAD</tag>
+  </scm>
+
 
   <pluginRepositories>
     <pluginRepository>
-      <id>public.onebusaway.org</id>
-      <url>http://nexus.onebusaway.org/content/groups/public/</url>
+      <id>repo.camsys-apps.com</id>
+      <url>https://repo.camsys-apps.com/third-party/</url>
     </pluginRepository>
   </pluginRepositories>
 
@@ -131,27 +157,27 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.2.1</version>
+          <version>2.5.5</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-clean-plugin</artifactId>
-          <version>2.4.1</version>
+          <version>2.6.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.3.2</version>
+          <version>3.8.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.2</version>
+          <version>2.10</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
-          <version>2.5</version>
+          <version>2.8.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -161,12 +187,12 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-install-plugin</artifactId>
-          <version>2.3.1</version>
+          <version>2.5.2</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>2.3.1</version>
+          <version>2.6</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -181,37 +207,37 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
-          <version>2.4.2</version>
+          <version>2.7</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.1</version>
+          <version>2.5.3</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.12</version>
+          <version>2.22.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.3</version>
+          <version>3.7.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>1.2.2</version>
+          <version>1.7.1</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
-          <version>2.1.2</version>
+          <version>2.4</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
-          <version>2.1.1</version>
+          <version>2.6</version>
         </plugin>
       </plugins>
     </pluginManagement>
@@ -219,24 +245,32 @@
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <!-- We want a license header in all our source code files. -->
       <plugin>
-        <groupId>com.mycila.maven-license-plugin</groupId>
-        <artifactId>maven-license-plugin</artifactId>
-        <version>1.10.b1</version>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <version>2.11</version>
         <configuration>
           <header>LICENSE.txt</header>
           <excludes>
+	    <exclude>**/pom.xml</exclude>
             <exclude>src/site/**</exclude>
             <exclude>LICENSE.txt</exclude>
             <exclude>eclipse/**</exclude>
             <exclude>**/.gitignore</exclude>
+            <exclude>**/git.properties</exclude>
+            <exclude>**/.travis.yml</exclude>
             <exclude>**/usage.txt</exclude>
             <exclude>**/log4j.properties</exclude>
+            <exclude>**/*.proto</exclude>
+            <exclude>**/*.txt</exclude>
+            <exclude>**/jquery*.js</exclude>
+            <exclude>**/jquery*.css</exclude>
+            <exclude>**/ember*.js</exclude>
           </excludes>
           <strictCheck>true</strictCheck>
           <aggregate>false</aggregate>
@@ -244,7 +278,7 @@
             <headerSection>
               <key>COPYRIGHT_SECTION</key>
               <defaultValue>Copyright (C) 2012 Brian Ferris &lt;bdferris@onebusaway.org&gt;</defaultValue>
-              <ensureMatch>Copyright \(C\) \d{4} .+</ensureMatch>
+              <ensureMatch>Copyright (\(C\)|\(c\)) \d{4} .+</ensureMatch>
             </headerSection>
           </headerSections>
         </configuration>
@@ -268,6 +302,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
+<!--
         <configuration>
           <reportPlugins>
             <plugin>
@@ -282,6 +317,7 @@
             </plugin>
           </reportPlugins>
         </configuration>
+-->
         <executions>
           <execution>
             <goals>
@@ -298,7 +334,12 @@
       <extension>
         <groupId>org.apache.maven.wagon</groupId>
         <artifactId>wagon-ssh</artifactId>
-        <version>1.0-beta-7</version>
+        <version>3.3.4</version>
+      </extension>
+      <extension>
+        <groupId>com.github.platform-team</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>6.0.0</version>
       </extension>
     </extensions>
   </build>
