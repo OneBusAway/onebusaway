@@ -261,6 +261,8 @@
             <exclude>src/site/**</exclude>
             <exclude>LICENSE.txt</exclude>
             <exclude>eclipse/**</exclude>
+            <exclude>.github/**</exclude>
+            <exclude>.idea/**</exclude>
             <exclude>**/.gitignore</exclude>
             <exclude>**/git.properties</exclude>
             <exclude>**/.travis.yml</exclude>
