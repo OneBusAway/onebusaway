@@ -86,7 +86,7 @@
       <connection>scm:git:git@github.com:onebusawway/onebusaway.git</connection>
       <developerConnection>scm:git:git@github.com:onebusaway/onebusaway.git</developerConnection>
       <url>scm:git:git@github.com:onebusaway/onebusaway</url>
-      <tag>onebusaway-1.2.10</tag>
+      <tag>HEAD</tag>
   </scm>
 
 
